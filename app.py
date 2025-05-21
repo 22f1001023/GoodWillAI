@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, session, request
 from flask_security import Security, SQLAlchemyUserDatastore
 from flask_security.utils import hash_password
 from uuid import uuid4
@@ -11,6 +11,12 @@ def create_app():
     app.config.from_object(LocalDevelopmentConfig)
     db.init_app(app)
 
+    @app.route('/toggle-theme', methods=['POST'])
+    def toggle_theme():
+        theme = request.form.get('theme', 'light')  # Default to light theme
+        session['theme'] = theme
+        return '', 204  # Empty response with status 204 (No Content)
+    
     # Setup Flask-Security-Too
     user_datastore = SQLAlchemyUserDatastore(db, User, Role)
     Security(app, user_datastore)
@@ -19,6 +25,7 @@ def create_app():
     from BackEnd.routes import bp  # Use 'bp' if that's your Blueprint name
     app.register_blueprint(bp)
 
+    
     return app
 
 def initialize_roles_and_admin(app):
