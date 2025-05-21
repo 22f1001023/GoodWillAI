@@ -3,6 +3,8 @@ GoodWillAI
 
 #Download the file
 create virtual environment using the cmnd: python -m venv venv
+
+
 activate it(if it's windows use this): venv\Scripts\activate
 
 #install requirements:
