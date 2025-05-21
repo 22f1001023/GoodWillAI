@@ -40,17 +40,22 @@ const About = {
           <div class="col-md-6">
             <div class="card bg-black border-0 shadow-lg rounded-4 h-100 p-4">
               <div class="d-flex align-items-center mb-3">
-                <img src="/static/aditya-avatar.png" alt="Aditya Nupani" class="rounded-circle me-3" style="width:60px; height:60px; object-fit:cover; border:2px solid #00ffe0;">
+                <img src="/static/aditya_photo.png" alt="Aditya Nupani" class="rounded-circle me-3" style="width:60px; height:60px; object-fit:cover; border:2px solid #00ffe0;">
                 <div>
                   <h3 class="fw-bold mb-0 text-success">Aditya Nupani</h3>
                   <div class="text-secondary small">Kolkata, West Bengal</div>
                 </div>
               </div>
-              <p class="mb-1"><strong>Education:</strong> BTech CSE (Other College), Data Science (IITM BS)</p>
+              <p class="mb-1"><strong>Education:</strong> B.Sc.(Hons) Computer Science (St. Xavier's College (Autonomous), Kolkata), B.S. Data Science and Applications (IIT Madras)</p>
               <p class="mb-1"><strong>Email:</strong> <a href="mailto:23f1000873@ds.study.iitm.ac.in" class="text-success">23f1000873@ds.study.iitm.ac.in</a></p>
+              <p class="mb-1"><strong>Linkedin:</strong> <a href="https://www.linkedin.com/in/aditya-n-316239297/" class="text-success">https://www.linkedin.com/in/aditya-n-316239297/</a></p>
+              <p class="mb-1"><strong>GitHub:</strong> <a href="https://github.com/adaboostadi" class="text-success">https://github.com/adaboostadi</a></p>
               <div class="mt-3" style="font-size: 0.97rem;">
                 Aditya is pursuing his degree at IITMBS with a background in Computer Science. He brings technical skills and fresh perspectives to the GoodWillAI project, contributing to the development of intelligent AI agents for supply chain management.
+                He is very passionate about data science and is committed to making a positive impact in the field.
+                His skills include technical writing, data analysis and problem-solving.
               </div>
+              <div class="fst-italic text-info mt-3">"Arise, awake and stop not until the goal is achieved."</div>
             </div>
           </div>
         </div>
