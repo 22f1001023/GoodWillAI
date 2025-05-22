@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoodWillAI</title>
+    <!-- Bootstrap 5 CSS (only allowed CSS framework) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Vue.js 2 (CDN only, not CLI) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- Vue Router -->
+    <script src="https://unpkg.com/vue-router@3/dist/vue-router.js"></script>
+    <!-- Axios for API calls -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Optional: Custom style.css for further tweaks -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+        }
+        .navbar, .card, .modal-content, .dropdown-menu {
+            background-color: #181c24 !important;
+            color: #e0e0e0 !important;
+        }
+        .navbar-brand, .nav-link, .footer-link {
+            color: #00ffe0 !important;
+            letter-spacing: 1px;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .card {
+            border-radius: 16px;
+            box-shadow: 0 4px 24px #00ffe044;
+        }
+        .feature-icon {
+            font-size: 2.2rem;
+            color: #00ffe0;
+            filter: drop-shadow(0 0 6px #00ffe0aa);
+        }
+        .goodwill-logo {
+            font-size: 2.2rem;
+            color: #00ffe0;
+            filter: drop-shadow(0 0 8px #00ffe0bb);
+        }
+        .btn, .btn:focus {
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .btn-success, .btn-primary {
+            background: linear-gradient(90deg, #00ffe0 0%, #007cf0 100%);
+            color: #181c24;
+            border: none;
+        }
+        .btn-success:hover, .btn-primary:hover {
+            background: linear-gradient(90deg, #007cf0 0%, #00ffe0 100%);
+            color: #181c24;
+        }
+        .footer-link:hover {
+            color: #fff !important;
+            text-shadow: 0 0 8px #00ffe0;
+        }
+        footer {
+            background: #181c24;
+            border-top: 2px solid #00ffe0;
+            color: #b0b0b0;
+        }
+        ::selection {
+            background: #00ffe044;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- Load Vue components -->
+    <script src="{{ url_for('static', filename='components/Home.js') }}"></script>
+    <script src="{{ url_for('static', filename='components/Navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='components/Footer.js') }}"></script>
+    <script src="{{ url_for('static', filename='components/Login.js') }}"></script>
+    <script src="{{ url_for('static', filename='components/Register.js') }}"></script>
+    <script src="{{ url_for('static', filename='components/About.js') }}"></script>
+    <script src="{{ url_for('static', filename='components/AdminDashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='components/FinanceDashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='components/PlanningDashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='components/HigherDashboard.js') }}"></script>
+    <!-- Main Vue Router/App config -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

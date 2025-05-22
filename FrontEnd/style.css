@@ -1,0 +1,47 @@
+/* About Card Styles */
+.about-card-light {
+    color: #f8f9fa !important;
+}
+.about-card-light strong {
+    color: #f8f9fa !important;
+}
+.about-card-light .text-secondary {
+    color: #d1d5db !important;
+}
+.about-card-light p,
+.about-card-light div,
+.about-card-light h3 {
+    color: #f8f9fa !important;
+}
+
+/* Input & Select Field Styles */
+input.form-control.bg-dark,
+.card input.form-control.bg-dark,
+select.form-select.bg-dark {
+    background-color: #282d33 !important;
+    color: #fff !important;
+    border: none;
+    border-bottom: 1px solid #444;
+    box-shadow: none;
+}
+
+/* Placeholder Styles */
+input.form-control.bg-dark::placeholder,
+select.form-select.bg-dark::placeholder {
+    color: #fff !important;
+    opacity: 1;
+}
+
+/* Chrome Autofill Fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #282d33 inset !important;
+    -webkit-text-fill-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Label Color (for dark backgrounds) */
+.form-label.text-muted {
+    color: #fff !important; /* Changed to white for readability */
+}
