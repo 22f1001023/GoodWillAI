@@ -3,8 +3,9 @@ from flask_security import auth_required, current_user, roles_required
 from flask_security.utils import login_user, logout_user, hash_password, verify_password
 from BackEnd.models import *
 from uuid import uuid4
-
+from BackEnd import agent
 bp = Blueprint('auth', __name__)
+
 
 @bp.route('/api/register', methods=['POST'])
 def register():
@@ -160,3 +161,16 @@ def get_statistics():
         "users_waiting_approval": pending_approval,
         "role_statistics": role_stats
     }), 200
+
+
+# --- API endpoint for Higher Officials to ask questions ---
+@bp.route('/api/agent/query', methods=['POST'])
+@auth_required('session', 'token')
+@roles_required('Higher Officials')
+def agent_query():
+    data = request.get_json()
+    user_query = data.get('query')
+    if not user_query:
+        return jsonify({"error": "No query provided"}), 400
+    result = agent.query_agent(user_query)
+    return jsonify({"result": result})
