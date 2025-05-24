@@ -3,11 +3,12 @@ import requests
 import json
 import re
 
-# Load DataFrame from Google Sheets (public CSV export)
-GOOGLE_SHEET_ID = "1z3KNSi0hoI2XiJgpnswhJ-NWNd4oAKvJZi1XeULt33E"
-GOOGLE_SHEET_CSV_URL = f"https://docs.google.com/spreadsheets/d/{GOOGLE_SHEET_ID}/export?format=csv"
-
-df = pd.read_csv(GOOGLE_SHEET_CSV_URL)
+# Load DataFrame from your local CSV file
+df = pd.read_csv(
+    r'C:\Users\Spidey7009\OneDrive\Desktop\GoodWillAI\AI-Hackathon\DataCoSupplyChainDataset.csv',
+    encoding='ISO-8859-1',
+    low_memory=False
+)
 
 CLAUDE_API_URL = "https://quchnti6xu7yzw7hfzt5yjqtvi0kafsq.lambda-url.eu-central-1.on.aws/"
 API_KEY = "syn-506407e2-2dff-44ac-b686-ce18e35ce114"
@@ -35,7 +36,7 @@ def extract_final_answer(ai_output):
     if match:
         return match.group(1).strip()
     # Fallback: return everything after the last code block
-    parts = re.split(r"```[\w]*\n", ai_output)
+    parts = re.split(r"```", ai_output)
     if len(parts) > 1:
         return parts[-1].strip()
     return ai_output.strip()
@@ -54,7 +55,7 @@ Convert this user query into correct Python pandas code that returns the answer:
 - First, write the pandas code (in a code block).
 - Then, below the code, provide a clear, human-readable summary of the answer, using Markdown, starting with 'Final Answer:'.
 - The summary should explain the result, mention key numbers, and list any relevant people or items.
-- Do NOT make up data—base your answer only on the DataFrame.
+- Do NOT make up data—base your answer only on the DataFrame. Give the answer after analysing the whole dataset 
 
 Format:
 Final Answer:
