@@ -3,8 +3,9 @@ from flask_security import auth_required, current_user, roles_required
 from flask_security.utils import login_user, logout_user, hash_password, verify_password
 from BackEnd.models import *
 from uuid import uuid4
-from BackEnd import agent
 bp = Blueprint('auth', __name__)
+from BackEnd import agent
+
 
 
 @bp.route('/api/register', methods=['POST'])
@@ -164,13 +165,49 @@ def get_statistics():
 
 
 # --- API endpoint for Higher Officials to ask questions ---
+# Add this to your existing routes.py file
+
 @bp.route('/api/agent/query', methods=['POST'])
 @auth_required('session', 'token')
 @roles_required('Higher Officials')
 def agent_query():
     data = request.get_json()
     user_query = data.get('query')
+    
     if not user_query:
         return jsonify({"error": "No query provided"}), 400
-    result = agent.query_agent(user_query)
-    return jsonify({"result": result})
+    
+    try:
+        result = agent.query_agent(user_query)
+        return jsonify({
+            "result": result,
+            "query": user_query
+        }), 200
+    except Exception as e:
+        return jsonify({"error": f"Query processing failed: {str(e)}"}), 500
+
+@bp.route('/api/agent/summary', methods=['GET'])
+@auth_required('session', 'token')
+@roles_required('Higher Officials')
+def get_data_summary():
+    """Get dataset summary"""
+    try:
+        # Generate a basic summary using the DataFrame
+        columns_info = ", ".join(agent.df.columns)
+        shape_info = f"Dataset has {agent.df.shape[0]} rows and {agent.df.shape[1]} columns"
+        preview = agent.df.head().to_markdown()
+        
+        summary = f"""
+## Dataset Summary
+
+**Shape:** {shape_info}
+
+**Columns:** {columns_info}
+
+**Preview:**
+{preview}
+        """
+        
+        return jsonify({"summary": summary}), 200
+    except Exception as e:
+        return jsonify({"error": f"Failed to get summary: {str(e)}"}), 500
