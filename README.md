@@ -40,7 +40,7 @@ GoodWill AI is a web-based platform designed to streamline administrative and fi
 | Layer     | Technologies                                                                                  |
 |-----------|----------------------------------------------------------------------------------------------|
 | Frontend  | Vue2 (CDN only), Bootstrap, HTML, CSS, JavaScript                                            |
-| Backend   | Flask (API & logic), FastAPI (where required), Flask-Security, Flask-SQLAlchemy              |
+| Backend   | Flask (API & logic), Flask-Security, Flask-SQLAlchemy              |
 | Database  | SQLite3                                                                                      |
 | AI/LLM    | Langchain, Claude 3.5 Sonnet                                                                 |
 
