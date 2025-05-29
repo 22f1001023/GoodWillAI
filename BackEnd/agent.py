@@ -130,7 +130,7 @@ pdf_documents = load_pdf_documents()
 
 # === Claude API Details ===
 CLAUDE_API_URL = "https://quchnti6xu7yzw7hfzt5yjqtvi0kafsq.lambda-url.eu-central-1.on.aws/"
-API_KEY = "syn-506407e2-2dff-44ac-b686-ce18e35ce114"
+API_KEY = "The secret key"
 
 def ask_claude(prompt, model="claude-3.5-sonnet", max_tokens=1024, temperature=0.7):
     """Call Claude API with error handling"""
